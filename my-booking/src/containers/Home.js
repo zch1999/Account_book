@@ -45,7 +45,7 @@ export const items = [
   }
 ]
 
-const newItem = {
+export const newItem = {
   "id": 4,
   "title": "新加",
   "price": 200,
@@ -58,7 +58,7 @@ class Home extends Component {
     super(props)
     this.state = {
       items,
-      currentDate: parseToYearAndMonth(),
+      currentDate: parseToYearAndMonth('2020/6/14'),
       tabView: LIST_VIEW
     }
   }
@@ -153,7 +153,7 @@ class Home extends Component {
         />
         }
         { tabView === CHART_VIEW &&
-            <h1>图表</h1>
+            <h1 className="chart-title">图表</h1>
         }
       </div>
       </React.Fragment>
