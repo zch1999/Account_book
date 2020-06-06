@@ -1,7 +1,9 @@
 import React from 'react'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Home from './containers/Home'
+import Create from './containers/Create'
 
 const items = [
   {
@@ -32,23 +34,20 @@ const items = [
 
 function App() {
   return (
+    <Router>
     <div className="App">
-      <Home />
-      {/* <MonthPicker
-        year={2020}
-        month={5}
-        onChange={(year, month) => {console.log(year,month)}}
-        />
-      <ViewTab 
-        activeTab= {LIST_VIEW}
-        onTabChange={(view) => {console.log(view)}} 
-      />*/}
-      {/* <PriceList 
-        items={items}
-        onModifyItem={(item) => {alert(item.id)}}
-        onDeleteItem={(item) => {alert(item.id)}}
-        /> */}
+      <ul>
+        <Link to="/">Home</Link>
+        <Link to="/create">create</Link>
+        <Link to="/edit/12">edit</Link>
+      </ul>
+      <div className="container pb-5">
+      <Route path="/" exact component={Home} />
+      <Route path="/create"  component={Create} />
+      <Route path="/edit/:id"  component={Create} />
+      </div>
     </div>
+    </Router>
   );
 }
 
